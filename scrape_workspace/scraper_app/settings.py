@@ -12,4 +12,6 @@ DATABASE = {
     'database': 'scrape'
 }
 
+ITEM_PIPELINES = ['scraper_app.pipelines.LivingSocialPipeline']
+
 
