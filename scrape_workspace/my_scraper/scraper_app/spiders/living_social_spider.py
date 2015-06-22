@@ -7,7 +7,7 @@ from scraper_app.items import LivingSocialDeal
 
 class LivingSocialSpider(BaseSpider):
     """
-    Spider for reggularly updated livingsocial.com site, 
+    Spider for regularly updated livingsocial.com site, 
     San Francisco Page
     """
     name = "livingsocial"
