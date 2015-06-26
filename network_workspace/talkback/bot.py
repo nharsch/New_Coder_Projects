@@ -24,17 +24,53 @@ class TalkBackBot(irc.IRCClient):
 
     def connectionLost(self, reason):
         """Called when a connection is lost."""
+        irc.IRClient.connectionLost(self, reason)
+        log.msg("connectionLost {!r}".format(reason))
 
     # callbacks for events
 
     def signedOn(self):
         """Called when bot has successfully signed on to server."""
+        log.msg("Signed on")
+        if self.nickname != self.factory.nickname:
+            log.msg('Your nickname was already occupied, actual nickname is '
+                    '"{}"'.format(self.nickname))
+        self.joind(self.factory.channel)
 
     def joined(self, channel):
         """Called when the bot joins the channel."""
+        log.msg("[{nick} has joined {channel}]".format(nick=self.nicknkame,
+                                                       channel=self.factory.channel
+                                                       ))
 
     def privmsg(self, user, channel, msg):
         """Called when the bot recieves a message."""
+        sendTo = None
+        prefix = ''
+        senderNick = user.split('!', 1)[0]
+        if channel == self.nickname:
+            # /MSG back
+            sendTo = senderNick
+        elif msg.startswith(self.nickname):
+            # Reply back on the channel
+            sendTo = channel
+            prefix = senderNick + ': '
+        else:
+            msg = msg.lower()
+            for trigger in self.factory.triggers:
+                if msg in trigger:
+                    sendTo = channel
+                    prefix = senderNick + ': '
+                    break
+
+        if sendTo:
+            quote = self.factory.quotes.pick()
+            self.msg(sendT0, prefix + quote)
+            log.msg(
+                "sent message to {receiver}, triggered by {sender}:\n\t{quote}".format(receiver=sendTo, 
+                                                                                       sender=senderNick,
+                                                                                       quote=quote)
+            )
 
 protocol = TalkBackBot
 
