@@ -2,17 +2,6 @@ from twisted.internet import protocol
 from twisted.python import log
 from twisted.words.protocols import irc
 
-class TalkBackBotFactory(protocol.ClientFactory):
-    # instantiate the TalkBackBot IRC protocol
-
-    def __init__(self, channel, nickname, realname, quotes, trigger):
-        """Initialize the bot factory with our settings."""
-        self.channel = channel
-        self.nickname = nickname
-        self.realname = realname
-        self.quotes = quotes
-        self.triggers = triggers
-
 class TalkBackBot(irc.IRCClient):
 
     def connectionMade(self):
@@ -24,7 +13,7 @@ class TalkBackBot(irc.IRCClient):
 
     def connectionLost(self, reason):
         """Called when a connection is lost."""
-        irc.IRClient.connectionLost(self, reason)
+        irc.IRCClient.connectionLost(self, reason)
         log.msg("connectionLost {!r}".format(reason))
 
     # callbacks for events
@@ -34,12 +23,12 @@ class TalkBackBot(irc.IRCClient):
         log.msg("Signed on")
         if self.nickname != self.factory.nickname:
             log.msg('Your nickname was already occupied, actual nickname is '
-                    '"{}"'.format(self.nickname))
-        self.joind(self.factory.channel)
+                    '"{}".'.format(self.nickname))
+        self.join(self.factory.channel)
 
     def joined(self, channel):
         """Called when the bot joins the channel."""
-        log.msg("[{nick} has joined {channel}]".format(nick=self.nicknkame,
+        log.msg("[{nick} has joined {channel}]".format(nick=self.nickname,
                                                        channel=self.factory.channel
                                                        ))
 
@@ -65,13 +54,25 @@ class TalkBackBot(irc.IRCClient):
 
         if sendTo:
             quote = self.factory.quotes.pick()
-            self.msg(sendT0, prefix + quote)
+            self.msg(sendTo, prefix + quote)
             log.msg(
                 "sent message to {receiver}, triggered by {sender}:\n\t{quote}".format(receiver=sendTo, 
                                                                                        sender=senderNick,
                                                                                        quote=quote)
             )
 
-protocol = TalkBackBot
+
+class TalkBackBotFactory(protocol.ClientFactory):
+    # instantiate the TalkBackBot IRC protocol
+    protocol = TalkBackBot
+
+    def __init__(self, channel, nickname, realname, quotes, triggers):
+        """Initialize the bot factory with our settings."""
+        self.channel = channel
+        self.nickname = nickname
+        self.realname = realname
+        self.quotes = quotes
+        self.triggers = triggers
+
 
 

@@ -10,4 +10,4 @@ class QuotePicker(object):
     def pick(self):
         """Return a random quote."""
         return choice(self.quotes).strip()
-        
+
