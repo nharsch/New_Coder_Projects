@@ -47,9 +47,9 @@ class TalkBackBot(irc.IRCClient):
         else:
             msg = msg.lower()
             for trigger in self.factory.triggers:
-                print [c for c in msg], len(msg)
-                print [c for c in trigger], len(trigger)
-                print msg == trigger
+                # print [c for c in msg], len(msg)
+                # print [c for c in trigger], len(trigger)
+                # print msg == trigger
 
                 if msg in trigger:
                     sendTo = channel

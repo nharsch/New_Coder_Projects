@@ -1,24 +1,25 @@
-2016-01-24 20:08:21-0500 [-] Log opened.
-2016-01-24 20:08:21-0500 [-] --> tests.test_quote_picker.TestQuotePicker.test_pick <--
-2016-01-24 20:08:21-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgAttribution <--
-2016-01-24 20:08:21-0500 [-] connectionMade
-2016-01-24 20:08:21-0500 [-] Signed on
-2016-01-24 20:08:21-0500 [-] [tbb has joined #testchannel]
-2016-01-24 20:08:21-0500 [-] sent message to #testchannel, triggered by tester:
+2016-01-25 00:01:44-0500 [-] Log opened.
+2016-01-25 00:01:44-0500 [-] --> tests.test_quote_picker.TestQuotePicker.test_pick <--
+2016-01-25 00:01:44-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgAttribution <--
+2016-01-25 00:01:44-0500 [-] connectionMade
+2016-01-25 00:01:44-0500 [-] Signed on
+2016-01-25 00:01:44-0500 [-] [tbb has joined #testchannel]
+2016-01-25 00:01:44-0500 [-] sent message to #testchannel, triggered by tester:
 		Nobody minds having what is too good for them. ~ Jane Austen
-2016-01-24 20:08:21-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgNoTrigger <--
-2016-01-24 20:08:21-0500 [-] connectionMade
-2016-01-24 20:08:21-0500 [-] Signed on
-2016-01-24 20:08:21-0500 [-] [tbb has joined #testchannel]
-2016-01-24 20:08:21-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgPrivateMessage <--
-2016-01-24 20:08:21-0500 [-] connectionMade
-2016-01-24 20:08:21-0500 [-] Signed on
-2016-01-24 20:08:21-0500 [-] [tbb has joined #testchannel]
-2016-01-24 20:08:21-0500 [-] sent message to tester, triggered by tester:
+2016-01-25 00:01:44-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgNoTrigger <--
+2016-01-25 00:01:44-0500 [-] connectionMade
+2016-01-25 00:01:44-0500 [-] Signed on
+2016-01-25 00:01:44-0500 [-] [tbb has joined #testchannel]
+2016-01-25 00:01:44-0500 [-] tester said hi
+2016-01-25 00:01:44-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgPrivateMessage <--
+2016-01-25 00:01:44-0500 [-] connectionMade
+2016-01-25 00:01:44-0500 [-] Signed on
+2016-01-25 00:01:44-0500 [-] [tbb has joined #testchannel]
+2016-01-25 00:01:44-0500 [-] sent message to tester, triggered by tester:
 		Nobody minds having what is too good for them. ~ Jane Austen
-2016-01-24 20:08:21-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgWithTrigger <--
-2016-01-24 20:08:21-0500 [-] connectionMade
-2016-01-24 20:08:21-0500 [-] Signed on
-2016-01-24 20:08:21-0500 [-] [tbb has joined #testchannel]
-2016-01-24 20:08:21-0500 [-] sent message to #testchannel, triggered by tester:
+2016-01-25 00:01:44-0500 [-] --> tests.test_talkbackbot.TestTalkBackBot.test_privmsgWithTrigger <--
+2016-01-25 00:01:44-0500 [-] connectionMade
+2016-01-25 00:01:44-0500 [-] Signed on
+2016-01-25 00:01:44-0500 [-] [tbb has joined #testchannel]
+2016-01-25 00:01:44-0500 [-] sent message to #testchannel, triggered by tester:
 		Nobody minds having what is too good for them. ~ Jane Austen
