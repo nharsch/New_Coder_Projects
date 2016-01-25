@@ -22,4 +22,4 @@ class TestQuotePicker(unittest.TestCase):
         quote = picker.pick()
         self.assertIn(quote, (self.QUOTE1, self.QUOTE2),
                       "Got unexpected quote: '%s'" % (quote))
-        
+

@@ -47,6 +47,10 @@ class TalkBackBot(irc.IRCClient):
         else:
             msg = msg.lower()
             for trigger in self.factory.triggers:
+                print [c for c in msg], len(msg)
+                print [c for c in trigger], len(trigger)
+                print msg == trigger
+
                 if msg in trigger:
                     sendTo = channel
                     prefix = senderNick + ': '
@@ -58,8 +62,9 @@ class TalkBackBot(irc.IRCClient):
             log.msg(
                 "sent message to {receiver}, triggered by {sender}:\n\t{quote}".format(receiver=sendTo, 
                                                                                        sender=senderNick,
-                                                                                       quote=quote)
-            )
+                                                                                       quote=quote))
+        else:
+            log.msg('{} said {}'.format(senderNick, msg))
 
 
 class TalkBackBotFactory(protocol.ClientFactory):
@@ -68,6 +73,7 @@ class TalkBackBotFactory(protocol.ClientFactory):
 
     def __init__(self, channel, nickname, realname, quotes, triggers):
         """Initialize the bot factory with our settings."""
+        print triggers
         self.channel = channel
         self.nickname = nickname
         self.realname = realname
